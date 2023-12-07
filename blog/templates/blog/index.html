@@ -1,0 +1,37 @@
+{% extends 'blog/basic.html' %}
+
+{% block title %} Blog {% endblock %}
+
+{% block body %}
+    <!--    FOR ADDING STATIC IMAGES/TEXT-->
+    <!--    {% load static %}-->
+    <!--    <a href="{% static 'blog/mystatic.txt' %}">Click me!</a>-->
+    <!--    <a href="{% static 'blog/mystatic.txt' %}"><img src="{% static 'blog/mystaticimage.jpg' %}" alt="NOT FOUND"></a>-->
+
+    <div class="container mt-3">
+        <div class="row my-2">
+            {% for item in myposts %}
+                <div class="col-md-6">
+                    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <strong class="d-inline-block mb-2 text-danger">{{ item.title }}</strong>
+                            <h3 class="mb-0">{{ item.heading0 }}</h3>
+                            <div class="mb-1 text-muted">
+                                <p>{{ item.publishing_date }}</p>
+                            </div>
+                            <p class="card-text">{{ item.content_heading0 | slice:"0:100" }}...</p>
+<!--                            <strong><a href="blogpost/{{ item.post_id }}" class="stretched-link">Continue reading</a></strong>-->
+                            <p><a class="btn btn-dark btn-sm" href="blogpost/{{ item.post_id }}" role="button">Continue reading &raquo;</a></p>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <img src="/media/{{ item.thumbnail }}" width="200" height="250">
+                        </div>
+                    </div>
+                </div>
+            {% if forloop.counter|divisibleby:2 %}
+                </div>
+                <div class="row my-2">
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
