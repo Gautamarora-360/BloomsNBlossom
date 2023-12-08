@@ -4,6 +4,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   
 
   <!-- Bootstrap CSS -->
@@ -16,16 +17,34 @@
     {% block css %} {% endblock %}
   </style>
 </head>
-<body>
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <img class="mx-2" src="../../media/logo.jpg" alt="BloomsNBlossoms Logo" height="40">
+{% comment %} <body style="background-image: url('../static/images/bgimg.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center; backdrop-filter: blur(5px)"> {% endcomment %}
+<body >
+ <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex flex-column border border-secondary" style="position: none; top: 0; z-index: 100; font-size:1.5vmax;">
+  <div class="d-flex justify-content-between border-bottom border-danger py-1" style="width:100%">
+  <img class="mx-2" src="../../media/logo.jpg" alt="BloomsNBlossoms Logo" height="40" style="display:block;">
 
-    <strong><a class="navbar-brand" href="/">BloomsNBlossoms</a></strong>
+    <strong><a class="navbar-brand" href="/" style="font-size:1.5vmax" >BloomsNBlossoms</a></strong>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+      <ul class="navbar-nav mr-auto">
+
+      </ul>
+      
+       
+      <form method='get' action='/shop/search/' class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <button type="button" class="btn btn-secondary mx-2" id="popcart" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Bottom popover">
+        Cart(<span id="cart">0</span>)
+      </button>
+    </div>
+  </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="/shop">Home <span class="sr-only">(current)</span></a>
@@ -42,14 +61,7 @@
         <li class="nav-item">
           <a class="nav-link" href="/shop/about">About us</a>
         </li>
-      </ul>
-      <form method='get' action='/shop/search/' class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-      <button type="button" class="btn btn-secondary mx-2" id="popcart" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Bottom popover">
-        Cart(<span id="cart">0</span>)
-      </button>
+      </ul> 
     </div>
   </nav>
 

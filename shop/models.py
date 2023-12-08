@@ -5,9 +5,12 @@ class Product(models.Model):
     product_name = models.CharField(max_length=50)
     price = models.IntegerField(default=0)
     image = models.ImageField(upload_to="shop/images", default="")
-    description = models.CharField(max_length=300)
+    description = models.CharField(max_length=500)
     category = models.CharField(max_length=50, default="")
     sub_category = models.CharField(max_length=50, default="")
+    Delivery_Information = models.CharField(max_length=500, default="")
+    Product_Care = models.CharField(max_length=500, default="")
+    
     publish_date = models.DateField(null=True)
     def __str__(self):
         return self.product_name
