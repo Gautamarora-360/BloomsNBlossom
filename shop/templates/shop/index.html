@@ -91,8 +91,10 @@
     </div>
     <div class="container-fluid" style = "text-align:center">
         <!--Slideshow starts here -->
-        {% for product, range, nSlides in allProducts %}
-            <h1 class="my-4"><b>{{ product.0.category }}</b></h1>
+        {% comment %} {% for product, range, nSlides in allProducts %}
+            <h1 class="my-4"><b>{{ product.0.category }}</b></h1> {% endcomment %}
+            {% for product, range, category, sub_category in allProducts %}
+    <h1 class="my-4"><b>{{ category }} - {{ sub_category }}</b></h1>
             <div class="row">
             <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel" data-interval="4000">
                 <ul class="carousel-indicators">

@@ -3,29 +3,42 @@ from django.http import HttpResponse
 from . models import Product, Contact, Order, OrderUpdate
 from math import ceil
 import json
+from django.db.models import Count
 
 
+# def index(request):
+    
+#     allProducts = []
+#     categProducts = Product.objects.values('category', 'id')
+#     categs = {item['category'] for item in categProducts}
+#     for cat in categs:
+#         prod = Product.objects.filter(category = cat)
+#         n = len(prod)
+#         nslides = n // 4 + ceil((n / 4) - (n // 4))
+#         allProducts.append([prod, range(1, nslides), nslides])
+#     params = {'allProducts':allProducts}
+#     return render(request, 'shop/index.html', params)
 def index(request):
-    # products = Product.objects.all()
-    # print(products)
-    # n = len(products)
-    # nslides = n//4 + ceil((n/4)-(n//4))
-    # params = {'no_of_slides':nslides, 'range':range(1, nslides), 'product':products}
-    # allProducts = [[products, range(1, nslides), nslides],
-    #                [products, range(1, nslides), nslides]]
-    # params = {'allProducts' : allProducts}
-    # return render(request, 'shop/index.html', params)
-
-    # -- Sahi wala
     allProducts = []
-    categProducts = Product.objects.values('category', 'id')
-    categs = {item['category'] for item in categProducts}
-    for cat in categs:
-        prod = Product.objects.filter(category = cat)
+
+    # Query distinct categories and subcategories
+    categories = Product.objects.values('category', 'sub_category').annotate(count=Count('id'))
+
+    for cat in categories:
+        category = cat['category']
+        sub_category = cat['sub_category']
+
+        # Query products for the current category and subcategory
+        prod = Product.objects.filter(category=category, sub_category=sub_category)
+
+        # Calculate the number of slides for the carousel
         n = len(prod)
         nslides = n // 4 + ceil((n / 4) - (n // 4))
-        allProducts.append([prod, range(1, nslides), nslides])
-    params = {'allProducts':allProducts}
+
+        # Append product information to the allProducts list
+        allProducts.append([prod, range(1, nslides), category, sub_category])
+
+    params = {'allProducts': allProducts}
     return render(request, 'shop/index.html', params)
 
 
