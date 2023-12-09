@@ -19,6 +19,8 @@ from django.db.models import Count
 #     params = {'allProducts':allProducts}
 #     return render(request, 'shop/index.html', params)
 def index(request):
+    
+
     allProducts = []
 
     # Query distinct categories and subcategories
