@@ -1,29 +1,46 @@
+
 {% extends 'shop/basic.html' %}
+
 
 {% block title %} About Us {% endblock %}
 
+
+
 {% block body %}
+{% load icons %}
+{% icon 'fb' %}
+
     <div class="jumbotron">
         <div class="container">
           <h1 class="display-3"><b>BloomsNBlossoms</b></h1> <br>
-              <p><i> Established in the vibrant city of New Delhi in 2020, BloomsNBlossoms has blossomed into a leading destination for exquisite flowers and plants. Our headquarters remain firmly rooted in New Delhi, India, reflecting our commitment to providing quality and elegance to our valued customers. From our humble beginnings to becoming a trusted name in the floral industry, BloomsNBlossoms continues to grow and flourish, offering a botanical haven that captivates the beauty of nature.
+              <p> Established in the vibrant city of New Delhi in 2020, BloomsNBlossoms has blossomed into a leading destination for exquisite flowers and plants. Our headquarters remain firmly rooted in New Delhi, India, reflecting our commitment to providing quality and elegance to our valued customers. From our humble beginnings to becoming a trusted name in the floral industry, BloomsNBlossoms continues to grow and flourish, offering a botanical haven that captivates the beauty of nature.
 
                 Welcome to BloomsNBlosooms, your one-stop-shop for all your gifting needs. At BloomsNBlossoms, we believe in the beauty of nature and the joy it brings to our lives. Our passion is to curate a collection of exquisite flowers and plants that reflect the elegance and grace found in the natural world. We take pride in sourcing the finest flowers and plants, ensuring that each arrangement is a masterpiece of freshness and longevity. Our commitment to quality means you can trust BloomsNBlossoms to deliver beauty that lasts. Immerse yourself in a world of botanical wonders, and let BloomsNBlossoms be your companion in celebrating life's beautiful moments.
                  <br>
                 
-                
-                
-                
-                
-                
-
-              </i></p>
+              </p>
               <br>
-          <p><a class="btn btn-dark btn-lg" href="/shop" role="button">&laquo; Go back </a></p>
+              <a class="btn btn-primary btn-lg mx-2" href="/shop" style="background-image: linear-gradient(120deg, #4CAF50 0%, #45a049 100%); color: #fff; border-radius: 5px; border: none; font-weight: 600;" role="button"> &laquo; Go back</a>
+          
         </div>
     </div>
 
-    <footer class="container">
-      <p style="color:#919191;">&copy; Company 2020-2023</p>
-    </footer>
+    
+   <!-- Footer section -->
+   <footer class="bg-light text-dark py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p style="font-size: 18px;">Copyright © 2023 BloomsNBlossoms</p>
+                <div >
+                    <i class="fa-brands fa-facebook"></i>
+                    <a href="#" target="_blank" class="text-dark mx-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" class="text-dark mx-2"><i class="fab fa-facebook"></i></a>
+                </div> 
+            </div>
+        </div>
+    </div>
+</footer>
+    
 {% endblock %}
+

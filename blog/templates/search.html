@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Search</title>
+</head>
+<body>
+    <form method="get" action="{% url 'blog:search' %}">
+        <input type="text" name="search" placeholder="Search in blog...">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if search_results %}
+        <h2>Search Results</h2>
+        <ul>
+            {% for post in search_results %}
+                <li><a href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</body>
+</html>
+

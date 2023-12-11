@@ -34,12 +34,19 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'django.contrib.admin',
     'django.contrib.auth',
+    "django_icons",
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog'
 ]
+
+DJANGO_ICONS = {
+    "ICONS": {
+        "fb": {"name": "fa-brands fa-facebook"},
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

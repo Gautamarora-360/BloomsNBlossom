@@ -1,4 +1,6 @@
 from django.db import models
+# blog/models.py
+
 
 class Blogpost(models.Model):
     post_id = models.AutoField(primary_key=True)
